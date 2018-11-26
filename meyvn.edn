@@ -1,0 +1,9 @@
+
+{:pom {:group-id "cumulo",
+       :artifact-id "reel",
+       :version "0.1.0",
+       :name "Reel library for Cumulo projects"}
+ :packaging {:jar {:enabled true
+                   :remote-repository {:id "clojars"
+                                       :url "https://clojars.org/repo"}}}
+ :scm {:enabled true}}
