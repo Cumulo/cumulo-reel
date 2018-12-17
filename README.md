@@ -9,7 +9,7 @@ Cumulo Reel
 [![Clojars Project](https://img.shields.io/clojars/v/cumulo/reel.svg)](https://clojars.org/cumulo/reel)
 
 ```edn
-[cumulo/reel "0.1.0"]
+[cumulo/reel "0.1.1"]
 ```
 
 Server side:
