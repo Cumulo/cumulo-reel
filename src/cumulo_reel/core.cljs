@@ -1,5 +1,5 @@
 
-(ns cumulo-reel.reel
+(ns cumulo-reel.core
   (:require [clojure.string :as string] [cumulo-reel.config :refer [dev?]]))
 
 (defn play-records [db records updater]

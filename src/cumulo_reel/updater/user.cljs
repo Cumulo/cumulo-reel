@@ -1,6 +1,6 @@
 
 (ns cumulo-reel.updater.user
-  (:require [cumulo-reel.util :refer [find-first]] ["md5" :as md5]))
+  (:require [cumulo-util.core :refer [find-first]] ["md5" :as md5]))
 
 (defn log-in [db op-data sid op-id op-time]
   (let [[username password] op-data

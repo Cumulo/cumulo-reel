@@ -1,16 +1,21 @@
 
-(ns cumulo-reel.config (:require [cumulo-reel.util :refer [get-env!]]))
+(ns cumulo-reel.config (:require [cumulo-util.core :refer [get-env!]]))
 
-(def bundle-builds #{"release" "local-bundle"})
+(def cdn?
+  (cond
+    (exists? js/window) false
+    (exists? js/process) (= "true" js/process.env.cdn)
+    :else false))
 
 (def dev?
-  (if (exists? js/window)
-    (do ^boolean js/goog.DEBUG)
-    (not (contains? bundle-builds (get-env! "mode")))))
+  (let [debug? (do ^boolean js/goog.DEBUG)]
+    (cond
+      (exists? js/window) debug?
+      (exists? js/process) (not= "true" js/process.env.release)
+      :else true)))
 
 (def site
-  {:storage-key "workflow-storage",
-   :port 5021,
+  {:port 5021,
    :title "Cumulo",
    :icon "http://cdn.tiye.me/logo/cumulo.png",
    :dev-ui "http://localhost:8100/main.css",
@@ -19,4 +24,6 @@
    :cdn-folder "tiye.me:cdn/cumulo-workflow",
    :upload-folder "tiye.me:repo/Cumulo/workflow/",
    :server-folder "tiye.me:servers/workflow",
-   :theme "#eeeeff"})
+   :theme "#eeeeff",
+   :storage-key "workflow-storage",
+   :storage-file "storage.edn"})

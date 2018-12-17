@@ -15,11 +15,11 @@ Cumulo Reel
 Server side:
 
 ```clojure
-(defonce *reel (atom (merge cumulo-reel.reel/reel-schema {:base initial-db, :db initial-db})))
+(defonce *reel (atom (merge cumulo-reel.core/reel-schema {:base initial-db, :db initial-db})))
 
-(cumulo-reel.reel/reel-reducer @*reel updater op op-data sid op-id op-time)
+(cumulo-reel.core/reel-reducer @*reel updater op op-data sid op-id op-time)
 
-(reset! *reel (cumulo-reel.reel/refresh-reel @*reel initial-db updater))
+(reset! *reel (cumulo-reel.core/refresh-reel @*reel initial-db updater))
 ```
 
 Client side:
