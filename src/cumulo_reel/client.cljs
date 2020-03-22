@@ -1,7 +1,7 @@
 
 (ns cumulo-reel.client
   (:require [respo.core :refer [render! clear-cache! realize-ssr!]]
-            [respo.cursor :refer [mutate]]
+            [respo.cursor :refer [update-states]]
             [cumulo-reel.comp.container :refer [comp-container]]
             [cljs.reader :refer [read-string]]
             [cumulo-reel.schema :as schema]
@@ -29,7 +29,7 @@
 (defn dispatch! [op op-data]
   (println "Dispatch" op op-data)
   (case op
-    :states (reset! *states ((mutate op-data) @*states))
+    :states (reset! *states (update-states @*states op-data))
     :effect/connect (connect!)
     (ws-send! {:kind :op, :op op, :data op-data})))
 
