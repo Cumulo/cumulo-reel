@@ -1,0 +1,6 @@
+{:version "0.2.0-a1"
+ :group-id "cumulo"
+ :artifact-id "reel"
+ :skip-tag true
+ :description "Reel library for Cumulo projects"
+ :scm-url "https://github.com/mvc-works/calcit-workflow"}
