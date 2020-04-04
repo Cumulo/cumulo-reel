@@ -12,7 +12,6 @@
     "page": "shadow-cljs clj-run build.main/page",
     "upload": "lumo -c cli/:src/ -m build.upload",
     "up": "yarn build-cdn && yarn upload",
-    "serve": "http-server dist -s",
     "ln": "cd target && rm -f entry && ln -s ../entry",
     "prod": "yarn install --production"
   },
@@ -30,8 +29,7 @@
     "ws": "^7.2.3"
   },
   "devDependencies": {
-    "http-server": "^0.12.1",
-    "shadow-cljs": "^2.8.93",
+    "shadow-cljs": "^2.8.94",
     "source-map-support": "^0.5.16"
   }
 }
